@@ -1,8 +1,13 @@
-# brainfuck_interpreter
-A configurable brainfuck interpreter!
+# A configurable brainfuck interpreter!
+
+
+make sure these files are in the same directory as the compiled interpreter: (with no file extensions, exactly as written below)
+- `bfconfig`
+- `bfinput`
+- `bfout`
 
 This is the default content of the `bfconfig` file:
-
+```
 memsize:32768
 wrap-tape:1
 allow-overflow:1
@@ -11,6 +16,7 @@ get-input-from-console:0
 output-to-console:0
 continue-on-error:1
 ignore-invalid:1
+```
 
 - memsize: size of the memory tape
 - wrap-tape: set memPtr to 0 if it exceeds the memory size and vice versa
@@ -20,3 +26,5 @@ ignore-invalid:1
 - output-to-console: if false, outputs to the `bfout` file.
 - continue-on-error: do you want to crash your program if you have an integer/memory index overflow?
 - ignore-invalid: crash on invalid character if set to 0
+
+Build using g++: `g++ -std=c++17 -Isrc src/*.cpp -o bf`
